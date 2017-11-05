@@ -8,41 +8,41 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/of';
 
-import { ICar } from '../models/models';
+import {ITicket} from '../models/models';
 
 
 @Injectable()
-export class CarService implements OnInit {
-  private baseUrl = 'http://localhost:3000/cars';
+export class TixxService implements OnInit {
+  private baseUrl = '/api/tickets';
   constructor(private http: Http) {
   }
   ngOnInit() {
   }
 
-  getCars(): Observable<any> {
+  getSoldTickets(): Observable<any> {
     return this.http.get(this.baseUrl)
       .map(this.extractData)
-      .do(data => console.log('getCars: ' + JSON.stringify(data)))
+      .do(data => console.log('getSoldTickets: ' + JSON.stringify(data)))
       .catch(this.handleError);
   }
 
-  postCar(car: ICar): Observable<any> {
-    const body = JSON.stringify(car);
+  postTicket(ticket: ITicket): Observable<any> {
+    const body = JSON.stringify(ticket);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
     return this.http.post(this.baseUrl + '/create', body, options)
       .map((res: Response) => res.json())
-      .do(data => console.log('postCar: ' + JSON.stringify(data)))
+      .do(data => console.log('postTicket: ' + JSON.stringify(data)))
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  updateCar(car: ICar): Observable<any> {
-    const body = JSON.stringify(car);
+  updateTicket(ticket: ITicket): Observable<any> {
+    const body = JSON.stringify(ticket);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const options = new RequestOptions({ headers: headers });
-    return this.http.put(this.baseUrl + '/' + car.vin + '/update', body, options)
+    return this.http.put(this.baseUrl + '/update', body, options)
       .map((res: Response) => res.json())
-      .do(data => console.log('updateCar: ' + JSON.stringify(data)))
+      .do(data => console.log('updateTicket: ' + JSON.stringify(data)))
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 

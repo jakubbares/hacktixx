@@ -1,36 +1,59 @@
-.has-underline {
-  text-decoration: underline;
+.free {
+  border-radius: 18px;
+  background: blue;
+  height: 25px;
 }
 
-.label {
-  text-align: left;
+.resale {
+  border-radius: 18px;
+  background: green;
+  height: 25px;
 }
 
-.button-show {
-  cursor: pointer;
+.selected {
+  border-radius: 18px;
+  background: red;
+  height: 25px;
 }
 
-.box-option {
-  border: 2px solid black;
-  height: 70px;
+.sold {
+  border-radius: 18px;
+  background: lightgrey;
+  height: 25px;
+}
+
+td {
+  height: 25px;
+}
+
+td div {
   text-align: center;
-  display: inline-block;
-  position: relative;
-  margin-bottom: 25px;
+  width: 23px;
 }
 
-.text-option > h3{
-  vertical-align: middle;
-  line-height: 70px;
-  font-size: 14px;
+td span {
+  color: white;
 }
-.text-option {
-  display: block;
-  width:100%;
-  cursor: pointer;
-}
-
 table {
-  min-height: 100px;
-  height: 100px;
+  counter-reset: rowNumber;
+}
+
+table tr {
+  counter-increment: rowNumber;
+}
+
+table tr td:first-child::before {
+  content: counter(rowNumber);
+  min-width: 1em;
+  margin-right: 30px;
+}
+
+.verified {
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+}
+
+.bold {
+  font-weight: 700;
 }

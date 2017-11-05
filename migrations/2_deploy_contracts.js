@@ -1,7 +1,7 @@
-var CarData = artifacts.require("./CarData.sol");
-//require the Insurance contract
+var Tixx = artifacts.require("./Tixx.sol");
+var Venue = artifacts.require("./Venue.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(CarData);
-  // deploy the insurance contract
+  deployer.deploy(Tixx);
+  deployer.deploy(Venue);
 };

@@ -1,0 +1,54 @@
+<div class="container">
+  <h1 class="title">My Tickets</h1>
+  <div *ngFor="let ticket of myTickets">
+    <div class="col-md-3 col-lg-3"></div>
+    <div class="col-md-6 col-lg-6">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <strong>Play: Lion King</strong>
+          </div>
+          <div class="row">
+          9.11.2017
+          </div>
+          <div class="row">
+          London’s Lyceum Theatre
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img align="right" src="../../../assets/lionking.jpg" height="200" width="200">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <div class="row">
+            Row
+          </div>
+          <div class="row">
+            Seat
+          </div>
+          <div class="row">
+            Price
+          </div>
+        </div>
+        <div class="col-md-3 bold">
+          <div class="row">
+            {{ ticket.row + 1}}
+          </div>
+          <div class="row">
+            {{ ticket.column + 1}}
+          </div>
+          <div class="row">
+            £{{ ticket.newPrice }}
+          </div>
+        </div>
+        <div class="col-md-7">
+          <img align="right" src="../../../assets/qrcode.png" height="200" width="200" (click)="bcVerifyTicket(ticket)">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 col-lg-3">
+      <div class="verified" *ngIf="verified[ticket.row][ticket.column]">Ticket<br>is<br>verified</div>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,11 @@
 {
-  "name": "angular-truffle",
-  "version": "0.0.0",
+  "name": "hacktixx",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "db": "node ./server/bin/www",
+    "start": "ng serve --proxy-config proxy.conf.json",
+    "server": "node ./server/bin/www",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

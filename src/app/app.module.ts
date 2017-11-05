@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {CarService} from '../services/car.service';
+import {TixxService} from '../services/tixx.service';
 import {routes} from "./app.routes";
-import {DataComponent} from './pages/data/data.page';
-//import the Insurance component
+import {UserService} from "../services/user.service";
+import {AuthenticationService} from "../services/authentication.service";
+import {TixxComponent} from "./pages/tixx/tixx.page";
+import {RegisterComponent} from "./pages/register/register.component";
+import {LoginComponent} from "./pages/login/login.component";
+import {WalletComponent} from "./pages/wallet/wallet.page";
 
 @NgModule({
   imports: [
@@ -19,10 +23,16 @@ import {DataComponent} from './pages/data/data.page';
   ],
   declarations: [
     AppComponent,
-    DataComponent
-    //declare the insurance component
+    TixxComponent,
+    RegisterComponent,
+    LoginComponent,
+    WalletComponent
   ],
-  providers: [CarService],
+  providers: [
+    TixxService,
+    UserService,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

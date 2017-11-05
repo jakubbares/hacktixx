@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 class="title">Seat selection</h1>
+  <div class="row">
+    <div class="col-lg-8 col-md-8">
+      <table>
+        <tr *ngFor="let row of rows">
+          <td *ngFor="let col of columns">
+            <div class="free" (click)="bookTicket(row,col)" *ngIf="seats[row][col] == 'Free' && !selectedSeats[row][col]"><span>{{col}}</span></div>
+            <div class="resale" (click)="bookTicket(row,col)" *ngIf="seats[row][col] == 'Resale' && !selectedSeats[row][col]"><span>{{col}}</span></div>
+            <div class="selected" (click)="unbookTicket(row,col)" *ngIf="selectedSeats[row][col]"><span>{{col}}</span></div>
+            <div class="sold" *ngIf="col != 0 && !selectedSeats[row][col] && seats[row][col] == 'None'"></div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-lg-4 col-md-4">
+      <div>
+        <div>Lion King</div>
+        <div>9.11.2017</div>
+        <div>{{ myTickets.length }} tickets</div>
+        <div>Price total £{{ totalPrice }}</div>
+        <button *ngIf="myTickets.length == 0" class="btn-secondary btn">Purchase tickets</button>
+        <button *ngIf="myTickets.length > 0" class="btn-primary btn" (click)="purchaseTickets()">Purchase tickets</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,24 +3,21 @@
 module.exports = {
   up: function (queryInterface, Sequelize) {
     return queryInterface
-      .createTable('Cars', {
+      .createTable('Tickets', {
         id: {
           type: Sequelize.INTEGER,
           primaryKey: true,
           autoIncrement: true,
           allowNull: false
         },
-        address: Sequelize.STRING,
-        firstName: Sequelize.STRING,
-        lastName: Sequelize.STRING,
-        vin: Sequelize.STRING,
-        spz: Sequelize.STRING,
-        brand: Sequelize.STRING,
-        model: Sequelize.STRING,
-        category: Sequelize.STRING,
-        distance: Sequelize.INTEGER,
-        dateRegistered: Sequelize.DATE,
-        value: Sequelize.INTEGER,
+        userEmail: Sequelize.STRING,
+        userEthAddress: Sequelize.STRING,
+        event: Sequelize.STRING,
+        row: Sequelize.INTEGER,
+        column: Sequelize.INTEGER,
+        resale: Sequelize.BOOLEAN,
+        origPrice: Sequelize.INTEGER,
+        newPrice: Sequelize.INTEGER,
         createdAt: {
           type: Sequelize.DATE,
           allowNull: false
@@ -31,6 +28,6 @@ module.exports = {
 
   down: function (queryInterface, Sequelize) {
     return queryInterface
-      .dropTable('Cars');
+      .dropTable('Tickets');
   }
 };
